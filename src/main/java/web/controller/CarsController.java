@@ -19,7 +19,7 @@ public class CarsController {
 
     @GetMapping(value = "/cars")
     public String CarsForSale(@RequestParam(value = "count", required = false, defaultValue = "5") int count,
-                               @RequestParam(value = "brand", required = false, defaultValue = "") String brand, Model model) {
+                              @RequestParam(value = "brand", required = false, defaultValue = "") String brand, Model model) {
 
         model.addAttribute("car", carService.getCars(brand, count));
 
