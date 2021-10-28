@@ -18,7 +18,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> getCars(int count) {
-        return carDao.getCars().stream().limit(count).collect(Collectors.toList());
+    public List<Car> getCars(String brand, int count) {
+        return carDao.getCars().stream().filter(s -> s.getBrand().contains(brand)).limit(count).collect(Collectors.toList());
     }
+
 }

@@ -18,9 +18,10 @@ public class CarsController {
     }
 
     @GetMapping(value = "/cars")
-    public String printWelcome(@RequestParam(value = "count", required = false, defaultValue = "5") int count, Model model) {
+    public String printWelcome(@RequestParam(value = "count", required = false, defaultValue = "5") int count,
+                               @RequestParam(value = "brand", required = false, defaultValue = "") String brand, Model model) {
 
-        model.addAttribute("car", carService.getCars(count));
+        model.addAttribute("car", carService.getCars(brand, count));
 
         return "cars";
     }
